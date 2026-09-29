@@ -23,6 +23,13 @@
 
 - **代码风格**：遵循 `.clang-format`；新增代码匹配周边现有代码的命名与结构；不随意改动 `util/` 下课程提供的代码。
 
+## 阅读 handout PDF 的方法
+
+AI agent 无法直接读取 PDF（二进制格式），统一使用 `scripts/read-pdf.sh`。其内部通过 **Windows 侧的 uv + PyMuPDF** 实现（共享环境说明见 `~/.agents/AGENTS.md`）：因为 Windows 进程看不到 WSL 文件系统，脚本和 PDF 会先暂存到 Windows `%TEMP%`（`C:\Users\xiang\AppData\Local\Temp\read-pdf`）再调用 `uv.exe`。Python 依赖由 uv 按 PEP 723 内联元数据（`scripts/read-pdf.py` 文件头）自动管理，无需在 WSL 或 Windows 全局安装任何 Python 包。
+
+- **读文字**：`bash scripts/read-pdf.sh text handouts/checkN.pdf [起始页] [结束页]`，文本输出到 stdout 直接阅读；省略页码则输出全文。
+- **看页面图示**（报文格式图、时序图等纯文本提取不到的内容）：`bash scripts/read-pdf.sh render handouts/checkN.pdf 起始页 结束页 /tmp/<前缀> [dpi]`（dpi 默认 150），再用 ReadMediaFile 读取输出的 PNG。渲染产物一律放 `/tmp`，不进入项目目录。
+
 ## 分支规范
 
 - **远程仓库**：`kid` = 自己的仓库（KIDPhantom1412/NetworkDIY，public，日常 push 目标；也存有全部 starter 分支作为备份，保证仓库自包含）；`origin` = 原备份仓库（rinevard/NetworkDIY，只用于获取 starter 分支；若原仓库失效，改用 `kid/checkN-startercode` 作为 merge 来源）。
