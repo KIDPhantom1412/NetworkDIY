@@ -25,7 +25,7 @@
 
 ## 分支规范
 
-- **远程仓库**：`kid` = 自己的仓库（KIDPhantom1412/NetworkDIY，public，日常 push 目标）；`origin` = 原备份仓库（rinevard/NetworkDIY，只用于获取 starter 分支）。
+- **远程仓库**：`kid` = 自己的仓库（KIDPhantom1412/NetworkDIY，public，日常 push 目标；也存有全部 starter 分支作为备份，保证仓库自包含）；`origin` = 原备份仓库（rinevard/NetworkDIY，只用于获取 starter 分支；若原仓库失效，改用 `kid/checkN-startercode` 作为 merge 来源）。
 - **个人学习分支统一使用 `kid_` 前缀**，当前主工作分支为 `kid_lab`。所有 Lab 实现、报告都提交在 `kid_` 分支上。
 - **`main` 保持干净**：不在 `main` 上写代码，它只作为 checkpoint 0 的原始基线。如需重新开始某个 Lab，可从 `main` 重新切分支。
 - **官方 starter 分支只读**：`origin/checkN-startercode` 是课程各 Lab 的接口与测试代码，通过 `git merge` 合入 `kid_lab`，不直接在其上提交。
