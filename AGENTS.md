@@ -4,7 +4,7 @@
 
 本仓库是 Stanford **CS144 Fall 2025**（计算机网络，基于现代 C++）Lab 的 Starter Code 备份，用于个人学习。核心目标是按顺序完成 Lab 0–7，最终用 C++ 实现一个可端到端通信的 TCP/IP 协议栈。
 
-- **学习路线**：以 `handouts/checkN.pdf` 实验文档为主线（`checkN_dual.pdf` 为中英对照版），不看视频课、不走 README 中的 CS168 混合路线。详细计划见 `学习方案.md`。
+- **学习路线**：以 `handouts/checkN.pdf` 实验文档为主线（`checkN_dual.pdf` 为中英对照版），不看视频课，纯 CS144 Lab 路线。详细计划见 `学习方案.md`。
 - **目录结构**：
   - `src/` —— Lab 实现代码（`byte_stream`、后续的 `reassembler`、`tcp_receiver`、`tcp_sender` 等）
   - `util/` —— 课程提供的工具库（Socket、Address、EventLoop 等，一般不改）
