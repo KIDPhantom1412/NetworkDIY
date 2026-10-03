@@ -4,10 +4,11 @@
 # ///
 """Extract text from or render pages of a PDF.
 
-Run from WSL via the Windows-side uv, with paths converted by wslpath -w:
+Run from WSL via uv (usually through the read-pdf.sh wrapper in the same
+directory):
 
-    uv.exe run "$(wslpath -w scripts/read-pdf.py)" text "$(wslpath -w handouts/check0.pdf)" [start] [end]
-    uv.exe run "$(wslpath -w scripts/read-pdf.py)" render "$(wslpath -w handouts/check0.pdf)" start end outdir [dpi]
+    uv run read-pdf.py text handouts/check0.pdf [start] [end]
+    uv run read-pdf.py render handouts/check0.pdf start end outdir [dpi]
 """
 
 import argparse
